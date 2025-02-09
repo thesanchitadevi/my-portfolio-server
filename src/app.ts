@@ -17,7 +17,8 @@ app.use('/api', router);
 const getController = async (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
-    message: 'Welcome to the Tech Blog Server',
+    message: 'Server is running smoothly',
+    timestamp: new Date(),
   });
 };
 
