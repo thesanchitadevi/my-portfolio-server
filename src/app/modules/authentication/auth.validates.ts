@@ -14,15 +14,6 @@ export const registerValidationSchema = z.object({
     password: z.string({
       required_error: 'Password is required',
     }),
-    address: z.string({
-      required_error: 'Address is required',
-    }),
-    city: z.string({
-      required_error: 'City is required',
-    }),
-    phone: z.string({
-      required_error: 'Phone is required',
-    }),
   }),
 });
 

@@ -4,9 +4,6 @@ export interface IUserRegister {
   name: string;
   email: string;
   password: string;
-  address: string;
-  city: string;
-  phone: string;
 }
 
 export interface ILoginUser {

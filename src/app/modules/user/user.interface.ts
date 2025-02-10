@@ -6,10 +6,7 @@ export interface IUser {
   password: string;
   email: string;
   passwordChangedAt?: Date;
-  role: 'admin' | 'customer';
-  phone?: string;
-  city?: string;
-  address?: string;
+  role: 'admin' | 'user';
   isBlocked: boolean;
 }
 
