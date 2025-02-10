@@ -103,7 +103,7 @@ const changePassword = async (
 
   await UserModel.findOneAndUpdate(
     {
-      id: userData.userId,
+      email: userData.email,
       role: userData.role,
     },
     {
@@ -188,7 +188,7 @@ const forgetPassword = async (email: string) => {
     '10m',
   );
 
-  const resetLink = `${config.reset_paasword_url_link}?id=${user.id}&token=${resetToken}`;
+  const resetLink = `${config.reset_paasword_url_link}?email=${user.email}&token=${resetToken}`;
 
   sendEmail(user.email, resetLink);
 };
@@ -226,7 +226,7 @@ const resetPassword = async (
 
   await UserModel.findOneAndUpdate(
     {
-      id: decoded.userId,
+      email: decoded.email,
       role: decoded.role,
     },
     {
