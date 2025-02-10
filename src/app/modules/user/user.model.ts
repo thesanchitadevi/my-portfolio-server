@@ -22,17 +22,8 @@ const userSchema = new Schema<IUser, IUserStaticModel>(
     },
     role: {
       type: String,
-      enum: ['admin', 'customer'],
-      default: 'customer',
-    },
-    phone: {
-      type: String,
-    },
-    address: {
-      type: String,
-    },
-    city: {
-      type: String,
+      enum: ['admin', 'user'],
+      default: 'user',
     },
     isBlocked: {
       type: Boolean,

@@ -3,6 +3,7 @@ import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { AuthServices } from './auth.service';
 import config from '../../config';
+import { AppError } from '../../errors/AppError';
 
 const registerUser = catchAsync(async (req, res) => {
   const user = await AuthServices.registerUser(req.body);
@@ -15,10 +16,6 @@ const registerUser = catchAsync(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      address: user.address,
-      phone: user.phone,
-      city: user.city,
-      role: user.role,
     },
   });
 });
@@ -84,6 +81,10 @@ const forgetPassword = catchAsync(async (req, res) => {
 
 const resetPassword = catchAsync(async (req, res) => {
   const token = req.headers.authorization;
+
+  if (!token) {
+    throw new AppError(HttpStatus.UNAUTHORIZED, 'You are not authorized!');
+  }
 
   const result = await AuthServices.resetPassword(req.body, token);
 

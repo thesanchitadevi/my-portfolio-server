@@ -7,7 +7,7 @@ const blockUserHandleFromDB = async (userId: string) => {
   const user = await UserModel.findByIdAndUpdate(
     {
       _id: userId,
-      role: 'cutomer',
+      role: 'user',
     },
     { isBlocked: true },
     { new: true },
