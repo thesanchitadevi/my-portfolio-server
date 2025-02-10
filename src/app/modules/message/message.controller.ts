@@ -9,7 +9,7 @@ const createMessage = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: HttpStatus.CREATED,
     success: true,
-    message: 'Blog created successfully',
+    message: 'Message created successfully',
     data: result,
   });
 });
