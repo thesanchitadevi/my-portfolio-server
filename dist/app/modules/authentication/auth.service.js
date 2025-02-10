@@ -75,7 +75,7 @@ const changePassword = (userData, payload) => __awaiter(void 0, void 0, void 0, 
     //hash new password
     const newHashedPassword = yield bcrypt_1.default.hash(payload.newPassword, Number(config_1.default.bycrpt_salt));
     yield user_model_1.UserModel.findOneAndUpdate({
-        id: userData.userId,
+        email: userData.email,
         role: userData.role,
     }, {
         password: newHashedPassword,
@@ -150,7 +150,7 @@ const resetPassword = (payload, token) => __awaiter(void 0, void 0, void 0, func
     //hash new password
     const newHashedPassword = yield bcrypt_1.default.hash(payload.newPassword, Number(config_1.default.bycrpt_salt));
     yield user_model_1.UserModel.findOneAndUpdate({
-        id: decoded.userId,
+        email: decoded.email,
         role: decoded.role,
     }, {
         password: newHashedPassword,
