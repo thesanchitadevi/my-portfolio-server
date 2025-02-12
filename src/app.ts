@@ -9,7 +9,12 @@ const app: Application = express();
 
 //parse application/json
 app.use(express.json());
-app.use(cors({ origin: ['http://localhost:3000'], credentials: true }));
+app.use(
+  cors({
+    origin: ['https://my-portfolio-client-seven.vercel.app'],
+    credentials: true,
+  }),
+);
 
 // Routes
 app.use('/api', router);
