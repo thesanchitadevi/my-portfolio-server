@@ -12,7 +12,8 @@ app.use(express.json());
 app.use(
   cors({
     origin: ['https://my-portfolio-client-seven.vercel.app'],
-    credentials: true,
+    methods: ['POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
   }),
 );
 
